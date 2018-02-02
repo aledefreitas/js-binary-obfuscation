@@ -1,6 +1,6 @@
 {
   "name": "js-binary-obfuscation",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Javascript obfuscation with random bytes inside",
   "main": "index.js",
   "bin": {
@@ -11,9 +11,22 @@
   "license": "MIT",
   "dependencies": {
     "browserify": "^15.2.0",
+    "fs": "0.0.1-security",
     "javascript-obfuscator": "^0.13.0",
     "randombytes": "^2.0.6",
     "safe-buffer": "^5.1.1",
     "uglify-js": "^3.3.9"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aledefreitas/js-binary-obfuscation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aledefreitas/js-binary-obfuscation/issues"
+  },
+  "homepage": "https://github.com/aledefreitas/js-binary-obfuscation#readme"
 }
