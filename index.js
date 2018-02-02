@@ -6,7 +6,11 @@ var browserify = require('browserify');
 var uglifyjs = require('uglify-js');
 
 var JSBinaryObfuscation = function(file) {
-    var code = uglifyjs.minify(buffer.from(fs.readFileSync(process.argv[2])).toString('utf8')).code;
+    this.file = file;
+};
+
+JSBinaryObfuscation.prototype.init = function() {
+    var code = uglifyjs.minify(buffer.from(fs.readFileSync(this.file)).toString('utf8')).code;
     var template = buffer.from(fs.readFileSync('./template.js')).toString('utf8');
 
     var obfuscated = jsobfuscator.obfuscate(code, {

@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+var fs = require('fs');
 
-(function() {
-    var JSBinaryObfuscation = require('../index.js');
+var JSBinaryObfuscation = require('../index.js');
 
-    if(!process.argv[2] || fs.readFileSync(process.argv[2]))
-        return;
+if(!process.argv[2] || !fs.readFileSync(process.argv[2]))
+    return;
 
-    new JSBinaryObfuscation(process.argv[2]);
-})();
+var obfuscator = new JSBinaryObfuscation(process.argv[2]);
+
+obfuscator.init();
