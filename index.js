@@ -11,7 +11,7 @@ var JSBinaryObfuscation = function(file) {
 
 JSBinaryObfuscation.prototype.init = function() {
     var code = uglifyjs.minify(buffer.from(fs.readFileSync(this.file)).toString('utf8')).code;
-    var template = buffer.from(fs.readFileSync('./template.js')).toString('utf8');
+    var template = buffer.from(fs.readFileSync(__dirname + '/template.js')).toString('utf8');
 
     var obfuscated = jsobfuscator.obfuscate(code, {
         compact: true,
@@ -29,13 +29,13 @@ JSBinaryObfuscation.prototype.init = function() {
 
     var finalCode = template.replace(/\{\{number\}\}/gi, byteDepth + 1);
 
-    fs.writeFile("./obfuscatedcode.js", finalCode, function(err) {
+    fs.writeFile(__dirname + "/obfuscatedcode.js", finalCode, function(err) {
         if(err) {
             console.log(err);
             return;
         }
 
-        browserify("./obfuscatedcode.js")
+        browserify(__dirname + "/obfuscatedcode.js")
         .bundle(function(err, buf) {
             var finalCode = jsobfuscator.obfuscate(uglifyjs.minify(buf.toString('utf8')).code.replace(/\{\{code\}\}/gi, finalBuf.toString('hex')), {
                 compact: true,
