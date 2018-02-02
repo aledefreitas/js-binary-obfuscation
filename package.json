@@ -1,0 +1,19 @@
+{
+  "name": "js-binary-obfuscation",
+  "version": "1.0.0",
+  "description": "Javascript obfuscation with random bytes inside",
+  "main": "index.js",
+  "bin": {
+    "js-binary-obfuscation": "bin/js-binary-obfuscation.js"
+  },
+  "preferGlobal": "true",
+  "author": "Alexandre de Freitas <https://github.com/aledefreitas>",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^15.2.0",
+    "javascript-obfuscator": "^0.13.0",
+    "randombytes": "^2.0.6",
+    "safe-buffer": "^5.1.1",
+    "uglify-js": "^3.3.9"
+  }
+}
